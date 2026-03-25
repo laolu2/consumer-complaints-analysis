@@ -94,7 +94,7 @@ consumer-complaints-analysis/
 - Matplotlib
 - Seaborn
 - MySQL Workbench
-- Metabase
+- PowerBI
 ```
 
 ---
