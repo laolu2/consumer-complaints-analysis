@@ -1,21 +1,22 @@
 # Consumer Complaints Analysis
 
 ## Overview
-Analysis of 62,516 consumer financial complaints submitted between 2017 and 2023. This project covers data cleaning, SQL analysis and data visualisation across three tools.
+Analysis of 62,516 consumer financial complaints submitted 
+between 2017 and 2023. This project covers data cleaning, 
+SQL analysis and data visualisation across three tools.
 
 ## Tools Used
 - **Python (Jupyter Notebook)** — data cleaning and exploration
 - **MySQL Workbench** — database storage and SQL analysis
-- **Metabase** — data visualisation and dashboards
+- **OwerBI** — data visualisation and dashboards
 
 ## Dataset
 - Source: Consumer Financial Protection Bureau (CFPB)
 - Records: 62,516 complaints
 - Period: 2017 to 2023
-- Columns: 12
+- Columns: 14
 
 ## Project Structure
-```
 consumer-complaints-analysis/
 ├── notebooks/
 │   └── consumer_cleaning.ipynb
@@ -24,21 +25,42 @@ consumer-complaints-analysis/
 ├── data/
 │   └── consumer_cleaning.csv
 └── README.md
-```
 
 ## Data Cleaning Steps
 - Loaded raw Excel file using Python and Pandas
+- Checked and removed all blank spaces across all text columns
 - Handled null values across four columns
 - Standardised all text columns to consistent casing
 - Fixed and validated date columns
 - Created new column for days to receive complaint
+- Created new column for month extracted from date submitted
 - Removed duplicate records
 - Exported cleaned data as CSV for MySQL import
+
+## Column Details
+| Column | Description |
+|---|---|
+| Complaint ID | Unique complaint identifier |
+| Submitted via | Channel used to submit complaint |
+| Date submitted | Date complaint was submitted |
+| Date received | Date complaint was received |
+| State | US state where complaint originated |
+| Product | Financial product complained about |
+| Sub-product | Sub category of the product |
+| Issue | Main issue reported |
+| Sub-issue | Sub category of the issue |
+| Company public response | Company public statement |
+| Company response to consumer | How company resolved complaint |
+| Timely response | Whether response was timely |
+| Days to receive | Days between submission and receipt |
+| Month | Month extracted from date submitted |
 
 ## SQL Analysis
 - Imported cleaned data into MySQL Workbench
 - Created structured database and table schema
-- Ran 15 analytical queries covering product analysis, response times, state breakdowns, monthly trends and resolution outcomes
+- Ran 15 analytical queries covering product analysis, 
+  response times, state breakdowns, monthly trends 
+  and resolution outcomes
 
 ## Key Questions Answered
 1. Which financial products get complained about most?
@@ -59,10 +81,10 @@ consumer-complaints-analysis/
 
 ## How to Run
 1. Clone this repository
-2. Open `consumer_cleaning.ipynb` in Jupyter Notebook
+2. Open consumer_cleaning.ipynb in Jupyter Notebook
 3. Run all cells from top to bottom
-4. Import `consumer_cleaning.csv` into MySQL Workbench
-5. Run queries from `queries.sql` in MySQL Workbench
+4. Import consumer_cleaning.csv into MySQL Workbench
+5. Run queries from queries.sql in MySQL Workbench
 6. Connect MySQL to Metabase for visualisation
 
 ## Requirements
@@ -73,3 +95,10 @@ consumer-complaints-analysis/
 - Seaborn
 - MySQL Workbench
 - Metabase
+```
+
+---
+
+Go to GitHub, click your `README.md`, click the **pencil icon**, delete everything and paste this in. Commit message:
+```
+Updated README to 14 columns with column details table
